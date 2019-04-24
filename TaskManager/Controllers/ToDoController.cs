@@ -14,9 +14,10 @@ namespace TaskManager.Controllers
     {
         // GET: api/ToDo
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            List<TaskItem> taskItems = DAL.GetTaskItemsList();
+            return new JsonResult(taskItems);
         }
 
         // GET: api/ToDo/5
